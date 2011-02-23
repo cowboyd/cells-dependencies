@@ -3,16 +3,16 @@ $:.push File.expand_path("../lib", __FILE__)
 require "cell/dependencies/version"
 
 Gem::Specification.new do |s|
-  s.name        = "cell-dependencies"
+  s.name        = "cells-dependencies"
   s.version     = Cell::Dependencies::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Charles Lowell"]
   s.email       = ["cowboyd@thefrontside.net"]
-  s.homepage    = "http://github.com/cowboyd/cell-dependencies"
+  s.homepage    = "http://github.com/cowboyd/cells-dependencies"
   s.summary     = "Say which cells depend on other cells"
   s.description = "Sometimes its useful to know which cells depend on each other before you actually render them"
 
-  s.rubyforge_project = "cell-dependencies"
+  s.rubyforge_project = "cells-dependencies"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
