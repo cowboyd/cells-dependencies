@@ -29,5 +29,3 @@ Dependencies are transitive
     
     WeatherCell.dependencies #=> [BannerCell, LogoCell]
 
-# Why is this useful?
-
