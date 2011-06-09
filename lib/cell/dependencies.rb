@@ -1,6 +1,5 @@
 require 'cells'
 require 'cell/dependencies/version'
-require 'active_support/core_ext/class/subclasses'
     
 module Cell
   module Dependencies
@@ -29,10 +28,19 @@ module Cell
     end
     
     module TotalOrder
+      
+      def subclasses
+        @subclasses ||= []
+      end
+
+      def inherited(cls)
+        Cell::Rails.subclasses << cls
+      end
+      
       def total_order
         seen = Set.new
         order = []
-        cells = Cell::Base.descendants.sort_by {|cell| cell.cell_name}
+        cells = Cell::Rails.subclasses.sort_by {|cell| cell.cell_name}
         cells.each do |cell|
           next if seen.include?(cell)
           order += cell.dependencies.select {|dep| !seen.include?(dep)} + [cell]

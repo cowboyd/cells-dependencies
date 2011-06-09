@@ -7,6 +7,7 @@ describe Cell::Dependencies do
       Cell::Base.stub(:class_from_cell_name) do |name|
         @cells[name.to_s] or raise "no such cell #{name}"
       end
+      Cell::Base.subclasses.clear
     end
 
     it "starts out empty" do
